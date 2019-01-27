@@ -1,0 +1,77 @@
+.btn{
+    border-radius: 0px;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/*===========================
+        Navigation 
+============================*/
+.navbar{
+    box-shadow: 2px 2px 5px #3292a6;
+    opacity: 0.9;
+    background: rgb(255, 255, 255);
+
+}
+
+.nav-item{
+    font-size: 1.4rem;
+    padding-right: 1.4rem;
+        
+}
+
+/*===========================
+        Home Section 
+============================*/
+#home-section{
+    background: rgba(245, 244, 244, 0.932);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 800px;
+    padding-top: 150px;
+    border-bottom: 2px solid rgba(143, 138, 138, 0.596);
+}
+
+
+#home-section h1{
+    font-weight: 600;
+    color: rgba(26, 24, 24, 0.767);
+    
+}
+
+#home-section .card-form{
+    opacity: 0.8;
+}
+
+#home-section .fa{
+    color: rgb(0, 0, 0);
+}
+
+#home-section p{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.801);
+}
+
+
+/*===========================
+        Contact Form 
+============================*/
+
+#contact{
+    padding-top: 150px;
+    border-top: 2px solid rgba(143, 138, 138, 0.596);
+}
+
+
+
+/*===========================
+        Copyrights 
+============================*/
+#main-footer{
+    background: #303940;
+    padding: 3rem 0;
+    font-size: 20px;
+    
+}
