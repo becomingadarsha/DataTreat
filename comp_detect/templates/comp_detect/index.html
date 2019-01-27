@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -8,25 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Normalise css -->
-    <link rel="stylesheet" type="text/css" href="vendor/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'comp_detect/vendor/normalize.css' %}">
 
-
+    <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
-
-
     <!-- Font awesome -->
-    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'comp_detect/vendor/fontawesome/css/font-awesome.min.css' %}">
 
     <!--Bootstrap-->
-    <link rel="stylesheet" href="./vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'comp_detect/vendor/bootstrap.min.css' %}">
 
     <!--Style css-->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'comp_detect/css/style.css' %}">
 
     <!--Media Query -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'comp_detect/css/responsive.css' %}">
 
 </head>
 
@@ -43,19 +42,19 @@
                 <span class="navbar-toggle-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a href="{% url 'comp_detect:index' %}" class="nav-link">Home</a>
+                  </li>
 
-                    <li class="nav-item">
-                        <a href="treatment.html" class="nav-link">Treatment</a>
-                    </li>
+                  <li class="nav-item">
+                      <a href="#authors" class="nav-link">Treatment</a>
+                  </li>
 
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
+                  <li class="nav-item active">
+                      <a href="{% url 'comp_detect:contact' %}" class="nav-link">Contact</a>
+                  </li>
+              </ul>
             </div>
         </div>
     </nav>
@@ -72,7 +71,7 @@
 
                         <div class="d-block d-lg-block justify-item-center">
 
-                            <img src="img/doctor.png" alt="" class="img-fluid d-none d-lg-block">
+                            <img src="{% static 'comp_detect/img/doctor.png' %}" alt="" class="img-fluid d-none d-lg-block">
                         </div>
 
                     </div>
@@ -156,16 +155,16 @@
 
 
     <!--Jquery JS-->
-    <script src="vendor/jquery-3.3.1.min.js"></script>
+    <script src="{% static 'comp_detect/vendor/jquery-3.3.1.min.js' %}"></script>
 
     <!--Bootstrap JS-->
-    <script src="vendor/bootstrap.min.js"></script>
+    <script src="{% static 'comp_detect/vendor/bootstrap.min.js' %}"></script>
 
     <!--Popper JS-->
-    <script src="vendor/popper.min.js"></script>
+    <script src="{% static 'comp_detect/vendor/popper.min.js' %}"></script>
 
     <!--Custom JS -->
-    <script src="js/custom.js"></script>
+    <script src="{% static 'comp_detect/js/custom.js' %}"></script>
 
 
     <script>
