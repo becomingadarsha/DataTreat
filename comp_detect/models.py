@@ -4,6 +4,7 @@ from django.core.validators import RegexValidator
 class Feature(models.Model):
     name = models.CharField(max_length = 200)
     unit = models.CharField(max_length = 50)
+    dtype = models.CharField(max_length = 50)
 
     def __str__(self):
         return self.name

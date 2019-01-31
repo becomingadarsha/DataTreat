@@ -48,7 +48,7 @@
                   </li>
 
                   <li class="nav-item">
-                      <a href="#authors" class="nav-link">Treatment</a>
+                      <a href="{% url 'comp_detect:treatment' %}" class="nav-link">Treatment</a>
                   </li>
 
                   <li class="nav-item active">
@@ -91,6 +91,9 @@
     <script>
         //JS Code Here
     </script>
+
+    {% block script %}
+    {% endblock %}
 
 </body>
 

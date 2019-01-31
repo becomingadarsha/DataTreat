@@ -1,14 +1,28 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-from .models import Message
-
+from .models import Message, Feature
+from pydoc import locate
+from django.forms.models import model_to_dict
 
 def index(request):
     return render(request, "comp_detect/index.html")
 
 def treatment(request):
-    return render(request, "comp_detect/treatment.html")
+    if(request.method == "POST"):
+        features = request.POST.getlist("feature[]")
+        feature_values = request.POST.getlist("feature_value[]")
+        clean_data = {}
+        for i, (feature_id, feature_value) in enumerate(zip(features, feature_values)):
+            try:
+                feature = Feature.objects.get(pk = int(float(feature_id)))
+                value = locate(feature.dtype)(feature_value)
+                clean_data[i] = {feature.name: value}
+            except (Feature.DoesNotExist, ValueError) as e:
+                pass
+        return JsonResponse(clean_data, safe=False)
+    else:
+        return render(request, "comp_detect/treatment.html", context={'features': Feature.objects.all()})
 
 def contact(request):
     return render(request, "comp_detect/contact.html")

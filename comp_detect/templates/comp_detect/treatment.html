@@ -2,5 +2,57 @@
 {% load static %}
 
 {% block content %}
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <section id="treatment" style="padding-top:150px;" class="pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+
+            <form id="testResultForm" action="#" method="post">
+              {% csrf_token %}
+              <div class="form-group row" v-for="(test, index) in tests">
+                <select class="col-sm-2 form-control" v-model="test.feature">
+                  <option value="" selected>--- Select Test ---</option>
+                  {% for feature in features %}
+                  <option value="{{ feature.id }}">{{ feature.name }}</option>
+                  {% empty %}
+                  <option value="">No tests found.</option>
+                  {% endfor %}
+                </select>
+                <input type="hidden" v-bind:name="`feature[]`" v-model="test.feature" multiple>
+                <div class="col-sm-4">
+                  <input class="form-control" type="text" v-bind:name="`feature_value[]`" v-model="test.value" placeholder="Test Result" multiple>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary" v-on:click="addTestResult">Add Test Result</button>
+              <button type="submit" class="btn btn-primary">Predict Complication</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#testResultForm',
+    data: {
+      tests: [
+        {
+          feature: "",
+          value: null
+        },
+      ]
+    },
+    methods: {
+
+      addTestResult () {
+        this.tests.push({ feature: "", value: null });
+      }
+
+    },
+  });
+</script>
 {% endblock %}
