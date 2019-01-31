@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Data Treat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Normalise css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'comp_detect/vendor/normalize.css' %}">
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="{% static 'comp_detect/vendor/fontawesome/css/font-awesome.min.css' %}">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="{% static 'comp_detect/vendor/bootstrap.min.css' %}">
+
+    <!--Style css-->
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'comp_detect/css/style.css' %}">
+
+    <!--Media Query -->
+    <link rel="stylesheet" type="text/css" href="{% static 'comp_detect/css/responsive.css' %}">
+
+</head>
+
+<body id="home" data-spy="scroll" data-target="#main-nav">
+
+    <!-- START HERE-->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top py-2" id="main-nav">
+        <div class="container">
+            <a href="#home" class="navbar-brand">
+
+                <h3 class="d-inline align-middle">DataTreat</h3>
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggle-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a href="{% url 'comp_detect:index' %}" class="nav-link">Home</a>
+                  </li>
+
+                  <li class="nav-item">
+                      <a href="{% url 'comp_detect:treatment' %}" class="nav-link">Treatment</a>
+                  </li>
+
+                  <li class="nav-item active">
+                      <a href="{% url 'comp_detect:contact' %}" class="nav-link">Contact</a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+
+  {% block content %}
+  {% endblock %}
+
+    <!--Footer-->
+    <footer id="main-footer" class="text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    Copyright &copy; <span id="year"></span> <br>
+                    Build with <i class="fa fa-heart"></i> by Data Treat
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--Jquery JS-->
+    <script src="{% static 'comp_detect/vendor/jquery-3.3.1.min.js' %}"></script>
+
+    <!--Bootstrap JS-->
+    <script src="{% static 'comp_detect/vendor/bootstrap.min.js' %}"></script>
+
+    <!--Popper JS-->
+    <script src="{% static 'comp_detect/vendor/popper.min.js' %}"></script>
+
+    <!--Custom JS -->
+    <script src="{% static 'comp_detect/js/custom.js' %}"></script>
+
+
+    <script>
+        //JS Code Here
+    </script>
+
+    {% block script %}
+    {% endblock %}
+
+</body>
+
+</html>
