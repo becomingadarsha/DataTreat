@@ -2,57 +2,109 @@
 {% load static %}
 
 {% block content %}
-    <section id="treatment" style="padding-top:150px;" class="pb-5">
-      <div class="container">
+    <section id="treatment" class="py-5 my-5">
+      <div class="container shadow-sm p-5 border">
         <div class="row">
           <div class="col-12">
-
+            <h3>Treatment</h3>
+            <p class="lead text-muted">Fill in the following fields.</p>
+            <hr>
             <form id="testResultForm" action="#" method="post">
               {% csrf_token %}
-              <div class="form-group row" v-for="(test, index) in tests">
-                <select class="col-sm-2 form-control" v-model="test.feature">
-                  <option value="" selected>--- Select Test ---</option>
-                  {% for feature in features %}
-                  <option value="{{ feature.id }}">{{ feature.name }}</option>
-                  {% empty %}
-                  <option value="">No tests found.</option>
-                  {% endfor %}
-                </select>
-                <input type="hidden" v-bind:name="`feature[]`" v-model="test.feature" multiple>
-                <div class="col-sm-4">
-                  <input class="form-control" type="text" v-bind:name="`feature_value[]`" v-model="test.value" placeholder="Test Result" multiple>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right">Gender:</label>
+                <div class="col-md-4">
+                  <div class="form-check-inline">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="sex" value="0" required>Female
+                    </label>
+                  </div>
+                  <div class="form-check-inline">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="sex" value="1">Male
+                    </label>
+                  </div>
                 </div>
               </div>
-
-              <button type="button" class="btn btn-primary" v-on:click="addTestResult">Add Test Result</button>
-              <button type="submit" class="btn btn-primary">Predict Complication</button>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="medInTime">Medicine Intake Time(Years):</label>
+                <div class="col-md-4">
+                  <input type="number" class="form-control" name="medInTime" id="medInTime" step="0.01" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="age">Age(Years):</label>
+                <div class="col-md-4">
+                  <input type="number" class="form-control" name="age" id="age" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="timeSufDbt">Time Sufferring from Diabetes(Years):</label>
+                <div class="col-md-4">
+                  <input type="number" class="form-control" name="timeSufDbt" id="timeSufDbt" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="avgDbtRate">Average Diabetes Rate:</label>
+                <div class="col-md-4">
+                  <select name="avgDbtRate" class="form-control" id="avgDbtRate" required>
+                    <option value="">Choose a rate</option>
+                    <option value="0">100-110</option>
+                    <option value="1">110-125</option>
+                    <option value="2">125-140</option>
+                    <option value="3">140-155</option>
+                    <option value="4">155+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="type">Type of Diabetes:</label>
+                <div class="col-md-4">
+                  <select name="type" class="form-control" id="type" required>
+                    <option value="">Choose a type</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="bplvl">Blood Pressure Level:</label>
+                <div class="col-md-4">
+                  <select name="bplvl" class="form-control" id="bplvl" required>
+                    <option value="">Choose a BP level</option>
+                    <option value="0">110-125</option>
+                    <option value="1">125-150</option>
+                    <option value="2">150-165</option>
+                    <option value="3">165+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="otherProb">Other Problem:</label>
+                <div class="col-md-4">
+                  <select name="otherProb" class="form-control" id="otherProb" required>
+                    <option value="7">None</option>
+                    <option value="0">Gastric</option>
+                    <option value="1">Eye Problems</option>
+                    <option value="2">Heart Diseases</option>
+                    <option value="3">Kidney</option>
+                    <option value="4">Lung</option>
+                    <option value="5">Other Major Operation</option>
+                    <option value="6">Stone</option>
+                  </select>
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-md-4">
+                  <button type="submit" class="btn btn-primary">Predict Complication</button>
+                </div>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </section>
-{% endblock %}
-
-{% block script %}
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script type="text/javascript">
-  var app = new Vue({
-    el: '#testResultForm',
-    data: {
-      tests: [
-        {
-          feature: "",
-          value: null
-        },
-      ]
-    },
-    methods: {
-
-      addTestResult () {
-        this.tests.push({ feature: "", value: null });
-      }
-
-    },
-  });
-</script>
 {% endblock %}
