@@ -10,6 +10,9 @@ import numpy as np
 def index(request):
     return render(request, "comp_detect/index.html")
 
+def getOrDefault(val, default):
+    return default if val == "" else val
+
 def treatment(request):
     if(request.method == "POST"):
         complications = [
@@ -30,8 +33,18 @@ def treatment(request):
         type = int(request.POST.get("type"))
         otherProb = int(request.POST.get("otherProb"))
         bplvl = int(request.POST.get("bplvl"))
+        vitaminC = int(getOrDefault(request.POST.get("vitaminC", 2), 2))
+        bloodKet = int(getOrDefault(request.POST.get("bloodKet", 2), 2))
+        uroporphytrin = int(getOrDefault(request.POST.get("uroporphytrin", 1), 1))
+        blood_bilburin = int(getOrDefault(request.POST.get("blood_bilburin", 1), 1))
+        rbc_cnt = int(getOrDefault(request.POST.get("rbc_cnt", 2), 2))
+        blood_urea_nit = int(getOrDefault(request.POST.get("blood_urea_nit", 2), 2))
+        wbc_cnt = int(getOrDefault(request.POST.get("wbc_cnt", 2), 2))
+        cyroprotein = int(getOrDefault(request.POST.get("cyroprotein", 0), 0))
         model = load_model()
-        predictions = model.predict_proba(np.array([sex, medInTime, age, timeSufDbt, avgDbtRate, type, otherProb, bplvl]).reshape(1, -1))
+        predictions = model.predict_proba(np.array([sex, medInTime, age, timeSufDbt, avgDbtRate, type, otherProb, bplvl,
+                    vitaminC, bloodKet, uroporphytrin, blood_bilburin, rbc_cnt, blood_urea_nit, wbc_cnt, cyroprotein
+        ]).reshape(1, -1))
         comp_with_prob = list(zip(complications, predictions[0]))
         comp_with_prob.sort(key=(lambda val: val[1]), reverse = True)
         return render(request, "comp_detect/prediction.html", context = locals())

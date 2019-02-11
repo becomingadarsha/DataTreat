@@ -62,10 +62,9 @@
                 <div class="col-md-4">
                   <select name="type" class="form-control" id="type" required>
                     <option value="">Choose a type</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option value="0">Type-1 (Juvenile-onset)</option>
+                    <option value="1">Type-2 (Non-insulin dependent or Adult-onset)</option>
+                    <option value="2">Type-3 (Gestational)</option>
                   </select>
                 </div>
               </div>
@@ -93,6 +92,92 @@
                     <option value="4">Lung</option>
                     <option value="5">Other Major Operation</option>
                     <option value="6">Stone</option>
+                  </select>
+                </div>
+              </div>
+              <h5>Lab Tests</h5>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="vitaminC">Vitamin C (mg/dL)</label>
+                <div class="col-md-4">
+                  <select name="vitaminC" class="form-control" id="vitaminC">
+                    <option value="">None</option>
+                    <option value="0">&lt;0.2</option>
+                    <option value="1">0.6+</option>
+                    <option value="2">0.2-0.6</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="bloodKet">Blood ketones</label>
+                <div class="col-md-4">
+                  <select name="bloodKet" class="form-control" id="bloodKet">
+                    <option value="">None</option>
+                    <option value="0">&lt;0.6</option>
+                    <option value="1">1.5+</option>
+                    <option value="2">0.6-1.5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="uroporphytrin">Uroporphytrin</label>
+                <div class="col-md-4">
+                  <select name="uroporphytrin" class="form-control" id="uroporphytrin">
+                    <option value="">None</option>
+                    <option value="0">2.4+</option>
+                    <option value="1">&lt;2.4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="blood_bilburin">Blood Bilburin</label>
+                <div class="col-md-4">
+                  <select name="blood_bilburin" class="form-control" id="blood_bilburin">
+                    <option value="">None</option>
+                    <option value="0">0.3+</option>
+                    <option value="1">&lt;0.3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="rbc_cnt">RBC Count(million cells/micro litre)</label>
+                <div class="col-md-4">
+                  <select name="rbc_cnt" class="form-control" id="rbc_cnt">
+                    <option value="">None</option>
+                    <option value="0">&lt;4.7</option>
+                    <option value="1">6.4+</option>
+                    <option value="2">4.7-6.4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="blood_urea_nit">Blood Urea Nitrogen(mg/dL)</label>
+                <div class="col-md-4">
+                  <select name="blood_urea_nit" class="form-control" id="blood_urea_nit">
+                    <option value="">None</option>
+                    <option value="0">&lt;7</option>
+                    <option value="1">20+</option>
+                    <option value="2">7-20</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="wbc_cnt">WBC Count(per micro litre)</label>
+                <div class="col-md-4">
+                  <select name="wbc_cnt" class="form-control" id="wbc_cnt">
+                    <option value="">None</option>
+                    <option value="0">&lt;4000</option>
+                    <option value="1">7000+</option>
+                    <option value="2">4000-7000</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 text-md-right align-self-center" for="cyroprotein">Cyroprotein(g/L)</label>
+                <div class="col-md-4">
+                  <select name="cyroprotein" class="form-control" id="cyroprotein">
+                    <option value="">None</option>
+                    <option value="0">&lt;30</option>
+                    <option value="1">30+</option>
                   </select>
                 </div>
               </div>

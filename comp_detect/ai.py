@@ -19,8 +19,8 @@ def train_model():
         le_name_mapping = dict(zip(labelEncoder.classes_, labelEncoder.transform(labelEncoder.classes_)))
         mapping_dict[col]=le_name_mapping
     print(mapping_dict)
-    X = df.values[:, 0:8]
-    Y = df.values[:,8]
+    X = df.values[:, 0:16]
+    Y = df.values[:,16]
 
     X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.3, random_state = 100)
     dt_clf_gini = DecisionTreeClassifier(criterion = "gini", random_state = 100,
@@ -32,7 +32,6 @@ def train_model():
 
     #creating and training a model
     #serializing our model to a file called model.pkl
-    import pickle
     pickle.dump(dt_clf_gini, open(os.path.dirname(os.path.abspath(__file__))+"/model.pkl","wb"))
 
 def load_model():

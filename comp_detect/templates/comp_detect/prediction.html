@@ -17,9 +17,17 @@
                   <div class="col-6 text-right font-weight-bold">Medicine Intake Time</div><div class="col-6">{{ medInTime }} years.</div>
                   <div class="col-6 text-right font-weight-bold">Time Sufferring from Diabetes</div><div class="col-6">{{ timeSufDbt }} years.</div>
                   <div class="col-6 text-right font-weight-bold">Average Diabetes Rate</div><div class="col-6">{{ avgDbtRate|toAvgDbtRates }} mg/dL.</div>
-                  <div class="col-6 text-right font-weight-bold">Type of Diabetes</div><div class="col-6">Type-{{ type }}</div>
+                  <div class="col-6 text-right font-weight-bold">Type of Diabetes</div><div class="col-6">{{ type|toDiabetesType }}</div>
                   <div class="col-6 text-right font-weight-bold">Blood Pressure Level</div><div class="col-6">{{ bplvl|toBPLevel }} mmHg.</div>
                   <div class="col-6 text-right font-weight-bold">Other Problem</div><div class="col-6">{{ otherProb|toProblem }}</div>
+                  <div class="col-6 text-right font-weight-bold">Vitamin C</div><div class="col-6">{{ vitaminC|toVitaminC }} mg/dL.</div>
+                  <div class="col-6 text-right font-weight-bold">Blood Ketones</div><div class="col-6">{{ bloodKet|toBloodKetones }}</div>
+                  <div class="col-6 text-right font-weight-bold">Uroporphytrin</div><div class="col-6">{{ uroporphytrin|toUroporphytrins }}</div>
+                  <div class="col-6 text-right font-weight-bold">Blood Bilburin</div><div class="col-6">{{ blood_bilburin|toBloodBilburins }}</div>
+                  <div class="col-6 text-right font-weight-bold">RBC Count</div><div class="col-6">{{ rbc_cnt|toRBCCounts }} million cells per micro litre.</div>
+                  <div class="col-6 text-right font-weight-bold">Blood Urea Nitrogen</div><div class="col-6">{{ blood_urea_nit|toBloodUreaNet }} mg/dL</div>
+                  <div class="col-6 text-right font-weight-bold">WBC Count</div><div class="col-6">{{ wbc_cnt|toWBCCounts }} per micro litre.</div>
+                  <div class="col-6 text-right font-weight-bold">Cyroprotein</div><div class="col-6">{{ cyroprotein|toCyroproteins }} g/L</div>
                 </div>
               </div>
             </div>
